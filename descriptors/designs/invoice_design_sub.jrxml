@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" 
+				xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+				xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" 
+				name="invoice_design_sub" language="groovy" pageWidth="595" pageHeight="842" orientation="Landscape" 
+				columnWidth="523" leftMargin="36" rightMargin="36" topMargin="10" bottomMargin="10">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="invoice_id" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="customer_notes" class="java.lang.String"/>
+	<parameter name="sales_tax" class="java.math.BigDecimal"/>
+	<parameter name="invoice_line_tax_id" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[select
+					quantity,
+          			description,
+					price as unit_price,
+					amount as line_total
+				from
+					invoice_line il
+				where
+					il.deleted = 0
+					and il.invoice_id = $P{invoice_id}
+					and il.type_id != $P{invoice_line_tax_id}
+				order by il.id asc]]>
+	</queryString>
+	<field name="quantity" class="java.math.BigDecimal"/>
+	<field name="description" class="java.lang.String"/>
+	<field name="unit_price" class="java.math.BigDecimal"/>
+	<field name="line_total" class="java.math.BigDecimal"/>
+	<variable name="sub_total" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{line_total}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="17">
+			<rectangle>
+				<reportElement x="33" y="0" width="27" height="17" forecolor="#A6A7A7" backcolor="#B7DBFF"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="439" y="0" width="61" height="17" forecolor="#A6A7A7" backcolor="#B7DBFF"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement mode="Transparent" x="33" y="0" width="27" height="17" forecolor="#000000" backcolor="#FFFFFE"/>
+				<textElement verticalAlignment="Middle">
+					<font size="7" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[  QTY]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="375" y="0" width="64" height="17" forecolor="#A6A7A7" backcolor="#B7DBFF"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="60" y="0" width="315" height="17" forecolor="#A6A7A7" backcolor="#B7DBFF"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement mode="Transparent" x="60" y="1" width="315" height="16" forecolor="#000000" backcolor="#B7DBFF"/>
+				<textElement verticalAlignment="Middle">
+					<font size="7" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[     DESCRIPTION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="439" y="1" width="61" height="16" forecolor="#000000" backcolor="#FFFFFF"/>
+				<textElement verticalAlignment="Middle">
+					<font size="7" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[     LINE TOTAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="375" y="0" width="64" height="17" forecolor="#000000" backcolor="#FFFFFE"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="7" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[  UNIT PRICE]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="17" splitType="Stretch">
+			<rectangle>
+				<reportElement x="33" y="0" width="27" height="17" forecolor="#A6A7A7" backcolor="#FFFFFF"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="439" y="0" width="61" height="17" forecolor="#A6A7A7" backcolor="#FFFFFF"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="375" y="0" width="64" height="17" forecolor="#A6A7A7" backcolor="#FFFFFF"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="60" y="0" width="315" height="17" forecolor="#A6A7A7" backcolor="#FFFFFF"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<textField isBlankWhenNull="true">
+				<reportElement x="33" y="0" width="27" height="17" forecolor="#333333"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[ $F{quantity} != null ? (new DecimalFormat("#,##0.##")).format($F{quantity}.doubleValue()) : "" ]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="60" y="0" width="315" height="17" forecolor="#333333"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{description}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="375" y="0" width="55" height="17" forecolor="#333333"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[ $F{unit_price} != null ? (new DecimalFormat("#,##0.##")).format($F{unit_price}.doubleValue()) : "" ]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="440" y="0" width="55" height="17" forecolor="#333333"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{line_total}.setScale(2, BigDecimal.ROUND_HALF_UP)]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<lastPageFooter>
+		<band height="61">
+			<rectangle>
+				<reportElement x="439" y="33" width="61" height="17" forecolor="#A6A7A7" backcolor="#FFFFFF"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="439" y="0" width="61" height="17" forecolor="#A6A7A7" backcolor="#FFFFFF"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="439" y="17" width="61" height="17" forecolor="#A6A7A7" backcolor="#FFFFFF"/>
+				<graphicElement>
+					<pen lineWidth="0.25"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement mode="Transparent" x="375" y="0" width="64" height="17" forecolor="#333333"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[  SUB TOTAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="375" y="17" width="64" height="17" forecolor="#333333"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[  TAXES]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="440" y="17" width="55" height="17" isRemoveLineWhenBlank="true" forecolor="#333333"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($P{sales_tax}).setScale(2, BigDecimal.ROUND_HALF_UP)]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="440" y="34" width="55" height="17" forecolor="#000000"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[(($V{sub_total}).add($P{sales_tax})).setScale(2, BigDecimal.ROUND_HALF_UP)]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="46" y="17" width="264" height="34" isRemoveLineWhenBlank="true" forecolor="#9900CC"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{customer_notes}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="375" y="34" width="64" height="17" forecolor="#000000"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[  TOTAL]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="440" y="0" width="55" height="17" forecolor="#333333"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($V{sub_total}).setScale(2, BigDecimal.ROUND_HALF_UP)]]></textFieldExpression>
+			</textField>
+		</band>
+	</lastPageFooter>
+</jasperReport>
