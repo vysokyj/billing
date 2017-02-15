@@ -39,7 +39,7 @@ img {
 
 /* line 62, sass/all.sass */
 a {
-  color: #0923B2;
+  color: #3993ba;
   text-decoration: none;
   cursor: pointer;
 }
@@ -242,7 +242,7 @@ hr {
 }
 /* line 207, sass/all.sass */
 #header .top-nav li {
-  color: #0923B2;
+  color: #3993ba;
   display: inline-block;
   padding: 0 7px 0 10px;
   font-size: 15px;
@@ -277,7 +277,7 @@ hr {
   -moz-box-shadow: rgba(0, 0, 0, 0.25) 0 -8px 8px -8px inset;
   box-shadow: rgba(0, 0, 0, 0.25) 0 -8px 8px -8px inset;
   background: url(../images/background_header.png);
-  color: #0923B2;
+  color: #3993ba;
   font-size: 12px;
 }
 
@@ -359,7 +359,7 @@ hr {
     border-width: 1px 1px 0 1px;
     border-style: solid;
     border-color: #c0c1bf;
-    color: #051258;
+    color: #067ead;
     text-decoration: none;
 }
 #navigation ul ul {
@@ -505,9 +505,9 @@ hr {
   border-radius: 3px 3px 0 0;
   border-width: 1px;
   border-style: solid;
-  border-color: #051258 #051258 #051258 #051258;
+  border-color: #067ead #067ead #067ead #067ead;
   text-shadow: rgba(255, 255, 255, 0.4) 0 1px 0;
-  color: #051258;
+  color: #067ead;
   height: 30px;
   font-size: 11px;
   font-weight: bold;
@@ -521,11 +521,11 @@ hr {
 }
 /* line 353, sass/all.sass */
 .heading a {
-  color: #051258;
+  color: #067ead;
 }
 /* line 355, sass/all.sass */
 .heading a:hover, .heading a:focus {
-  color: #051258;
+  color: #067ead;
 }
 /* line 357, sass/all.sass */
 .heading.active {
@@ -1064,7 +1064,7 @@ hr {
 }
 /* line 703, sass/all.sass */
 .list li a:hover {
-  color: #0923B2;
+  color: #3993ba;
 }
 /* line 705, sass/all.sass */
 .list li img {
@@ -2276,7 +2276,7 @@ ul#metafield-ait {
   border-radius: 3px 3px 0 0;
   border-width: 1px;
   border-style: solid;
-  border-color: #051258 #051258 #051258 #051258;
+  border-color: #067ead #067ead #067ead #067ead;
 }
 /* line 15, sass/all.sass */
 .ie9 .box-cards-title {
@@ -2286,7 +2286,7 @@ ul#metafield-ait {
 .box-cards-title span {
   font-size: 11px;
   font-weight: bold;
-  color: #051258;
+  color: #067ead;
   line-height: 30px;
   padding-right: 35px;
   padding-left: 7px;
@@ -2844,7 +2844,7 @@ td.tiny, th.tiny {
   position: relative;
   border-width: 1px;
   border-style: solid;
-  border-color: #051258 #051258 #051258 #051258;
+  border-color: #067ead #067ead #067ead #067ead;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   -ms-border-radius: 0;
@@ -2853,7 +2853,7 @@ td.tiny, th.tiny {
   border-width: 1px 0 1px;
   text-align: left;
   text-shadow: rgba(255, 255, 255, 0.4) 0 1px 0;
-  color: #051258;
+  color: #067ead;
   height: 30px;
   font-size: 11px;
   font-weight: bold;
@@ -2879,7 +2879,7 @@ td.tiny, th.tiny {
 /* line 1697, sass/all.sass */
 .table-box th a, .innerHeader th a {
   text-shadow: rgba(255, 255, 255, 0.4) 0 1px 0;
-  color: #051258;
+  color: #067ead;
   height: 30px;
   font-size: 11px;
   font-weight: bold;
@@ -2904,7 +2904,7 @@ td.tiny, th.tiny {
   height: 10px;
   border-width: 1px;
   border-style: solid;
-  border-color: #051258 #051258 #051258 #051258;
+  border-color: #067ead #067ead #067ead #067ead;
 }
 /* line 15, sass/all.sass */
 .ie9 .sub-box thead tr:before, .ie9 .sub-box thead tr:after {
@@ -2978,7 +2978,7 @@ td.tiny, th.tiny {
   height: 10px;
   border-width: 1px;
   border-style: solid;
-  border-color: #051258 #051258 #051258 #051258;
+  border-color: #067ead #067ead #067ead #067ead;
 }
 /* line 15, sass/all.sass */
 .ie9 .table-box table thead tr:before, .ie9 .table-box table thead tr:after {
@@ -3161,9 +3161,9 @@ td.tiny, th.tiny {
   border-radius: 3px 3px 0 0;
   border-width: 1px;
   border-style: solid;
-  border-color: #051258 #051258 #051258 #051258;
+  border-color: #067ead #067ead #067ead #067ead;
   text-shadow: rgba(255, 255, 255, 0.4) 0 1px 0;
-  color: #051258;
+  color: #067ead;
 }
 /* line 15, sass/all.sass */
 .ie9 .table-area table thead td {
@@ -3349,7 +3349,7 @@ table.column-90 {
 
 .ui-dialog-title {
     text-shadow: rgba(255, 255, 255, 0.4) 0 1px 0;
-    color: #051258;
+    color: #067ead;
     font-size: 11px;
     font-weight: bold;
     text-transform: uppercase;
