@@ -267,7 +267,7 @@ You may download the latest source from webdataconsulting.github.io.
             </a>
         </li>
         <li>
-            <a href="${resource(dir:'manual', file: 'index.html')}" class="help">
+            <a href="mailto:support@webdataconsulting.in" target="_top" class="help">
                 <g:message code="topnav.link.help"/>
             </a>
         </li>

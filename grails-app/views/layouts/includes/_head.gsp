@@ -32,9 +32,12 @@ You may download the latest source from webdataconsulting.github.io.
 
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
-<title><g:layoutTitle default="jBilling" /></title>
+<title><g:layoutTitle default="Web Data" /></title>
 
 <link rel="shortcut icon" href="${resource(dir:'images', file:'favicon.ico')}" type="image/x-icon" />
+<link rel="stylesheet" href="${resource(dir:'bootstrap-plugins/bootstrap/css', file:'bootstrap.css')}" type="text/css">
+<link rel="stylesheet" href="${resource(dir:'bootstrap-plugins/font-awesome/css', file:'font-awesome.min.css')}" type="text/css">
+<link rel="stylesheet" href="${resource(dir:'bootstrap-plugins/simple-line-icons', file:'simple-line-icons.min.css')}" type="text/css">
 
 <r:require modules="jquery, core, ui, input"/>
 

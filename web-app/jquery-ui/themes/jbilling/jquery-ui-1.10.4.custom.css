@@ -418,14 +418,14 @@ button.ui-button::-moz-focus-inner {
     top: 0px;
     left: 0px;
     border-right: 1px solid #c2dca2;
-    -webkit-box-shadow: inset -1px 0 0 #051258;
-    -moz-box-shadow: inset -1px 0 0 #051258;
-    box-shadow: inset -1px 0 0 #051258;
+    -webkit-box-shadow: inset -1px 0 0 #067ead;
+    -moz-box-shadow: inset -1px 0 0 #067ead;
+    box-shadow: inset -1px 0 0 #067ead;
 }
 .ui-datepicker .ui-datepicker-next {
     top: 0px;
     right: 0px;
-    border-left: 1px solid #051258;
+    border-left: 1px solid #067ead;
     -webkit-box-shadow: inset 1px 0 0 #c2dca2;
     -moz-box-shadow: inset 1px 0 0 #c2dca2;
     box-shadow: inset 1px 0 0 #c2dca2;
@@ -433,12 +433,12 @@ button.ui-button::-moz-focus-inner {
 
 .ui-datepicker .ui-datepicker-prev:hover,
 .ui-datepicker .ui-datepicker-next:hover {
-    background-color: #0923B2;
-    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #0923B2), color-stop(100%, #051258));
-    background-image: -webkit-linear-gradient(#0923B2,  #051258);
-    background-image: -moz-linear-gradient(#0923B2, #051258);
-    background-image: -o-linear-gradient(#0923B2, #051258);
-    background-image: linear-gradient(#0923B2,  #051258);
+    background-color: #3993ba;
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #3993ba), color-stop(100%, #067ead));
+    background-image: -webkit-linear-gradient(#3993ba,  #067ead);
+    background-image: -moz-linear-gradient(#3993ba, #067ead);
+    background-image: -o-linear-gradient(#3993ba, #067ead);
+    background-image: linear-gradient(#3993ba,  #067ead);
 }
 
 
@@ -817,7 +817,7 @@ button.ui-button::-moz-focus-inner {
     background: #fff;
 }
 .ui-tabs .ui-tabs-nav li a { float: left; padding: .5em 1em; text-decoration: none; font-size: 13px; line-height: 23px; font-weight: bold; }
-.ui-tabs .ui-tabs-nav li.ui-tabs-selected a, .ui-tabs .ui-tabs-nav li:hover a {box-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px 0; color: #051258;}
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected a, .ui-tabs .ui-tabs-nav li:hover a {box-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px 0; color: #067ead;}
 .ui-tabs .ui-tabs-nav li.ui-tabs-selected { margin-bottom: 0; padding-bottom: 1px; }
 .ui-tabs .ui-tabs-nav li.ui-tabs-selected a, .ui-tabs .ui-tabs-nav li.ui-state-disabled a, .ui-tabs .ui-tabs-nav li.ui-state-processing a { cursor: text; }
 .ui-tabs .ui-tabs-nav li a, .ui-tabs.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected a { cursor: pointer; } /* first selector in group seems obsolete, but required to overcome bug in Opera applying cursor: text overall if defined elsewhere... */
@@ -881,7 +881,7 @@ body .ui-tooltip {
 }
 .ui-widget-content { border: 1px solid #aaaaaa; background: #ffffff url(/images/theme/ui-bg_flat_75_ffffff_40x100.png) 50% 50% repeat-x; color: #7e7e7e; }
 .ui-widget-content a {
-	color: #0923B2;
+	color: #3993ba;
 }
 .ui-widget-header {
     background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #C6CFFF), color-stop(3%, #C6CFFF), color-stop(100%, #C6CFFF));
@@ -896,11 +896,11 @@ body .ui-tooltip {
     border-radius: 3px 3px 0 0;
     border-width: 1px;
     border-style: solid;
-    border-color: #051258 #051258 #051258 #051258;
+    border-color: #067ead #067ead #067ead #067ead;
     border-radius: 3px;
     text-align: left;
     text-shadow: rgba(255, 255, 255, 0.4) 0 1px 0;
-    color: #051258;
+    color: #067ead;
     padding: 3px 5px 3px;
     text-transform: uppercase;
     font-weight: bold;
@@ -918,7 +918,7 @@ body .ui-tooltip {
     background-color: #f4f4f4;
     border: 1px solid #bbbbbb;
     font-weight: normal;
-    color: #051258;
+    color: #067ead;
 }
 .ui-state-default a,
 .ui-state-default a:link,

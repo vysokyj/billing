@@ -46,7 +46,7 @@ You may download the latest source from webdataconsulting.github.io.
                 <tr id="type-${type.id}" class="${selected?.id == type.id ? 'active' : ''}">
                     <td>
                         <g:remoteLink class="cell double" action="show" id="${type.id}" before="register(this);" onSuccess="render(data, next); \$('html, body').animate({ scrollTop: 0 }, 'fast');">
-                            <strong>${StringUtils.abbreviate(StringEscapeUtils.escapeHtml(type.getDescription(session['language_id'])), 50)}</strong>
+                            <strong>${StringUtils.abbreviate(StringEscapeUtils.escapeHtml(type.getDescription(session['language_id'] as Integer)), 50)}</strong>
                             <em>Id: ${type.id}</em>
                         </g:remoteLink>
                     </td>

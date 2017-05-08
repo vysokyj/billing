@@ -42,7 +42,7 @@
             <fieldset>
                 <div class="form-columns">
                 	<%--Use two columns --%>
-                    <div class="one_column" style="width:650px">
+                    <div class="single">
                     	<div class="row">
 							<g:applyLayout name="form/date">
 	                             <content tag="label"><g:message code="billing.next.run.date"/></content>
@@ -127,52 +127,40 @@
 	                        </g:applyLayout>
                         </div>
                     </div>
-                      <div align="center" style="width:600px; border: solid #bbbbbb; border-width: 1px; margin: 0%; margin-bottom: 10px; margin-left: 22px;">
-                    	  <table style="width: 90%;  margin: 0px; vertical-align: to">
-                    	     <tr>
-                    	       <td style="width: 33%; text-align: right; font-size: 12px;">
-                    	     	<g:message code="billing.prorating.options"/>&nbsp;&nbsp;
-                    	       </td>
-                    	       <td style="width: 67%;">
-	                    	  	 <g:applyLayout name="form/radio">
-									  <div class="row" align="center">	
-		                              		<g:radio class="rb" id="billing.proratingType.alwaysProrating" name="proratingType" value="${ProratingType.PRORATING_AUTO_ON}" checked="${configuration?.proratingType?.equals(ProratingType.PRORATING_AUTO_ON.getOptionText())}"/>
-		                              		<label class="rb" for="billing.proratingType.alwaysProrating"><g:message code="label.proratingType.alwaysProrating"/></label>
-									   </div>
-									   <div class="row">	
-		                              		<g:radio class="rb" id="billing.proratingType.neverProrating" name="proratingType" value="${ProratingType.PRORATING_AUTO_OFF}" checked="${configuration?.proratingType?.equals(ProratingType.PRORATING_AUTO_OFF.getOptionText())}"/>
-		                              		<label class="rb" for="billing.proratingType.neverProrating"><g:message code="label.proratingType.neverProrating"/></label>
-		                              </div>
-		                              <div class="row">	
-		                               		<g:radio class="rb" id="billing.proratingType.manuallyProrating" name="proratingType" value="${ProratingType.PRORATING_MANUAL}" checked="${configuration?.proratingType?.equals(ProratingType.PRORATING_MANUAL.getOptionText())}"/>
-		                              		<label class="rb" for="billing.proratingType.manuallyProrating"><g:message code="label.proratingType.manuallyProrating"/></label>
-		                              </div>
-		                          </g:applyLayout>
-	                           </td>
-                    	     </tr>
-	                   </table>
-	                   <table style="width: 605px;">
-					    	<tr>
-					    		<td style="width: 100%; text-align: right;">
-									<p style="font-size: 12px;"><strong><g:message code="billing.label.note"/>: </strong><g:message code="billing.prorating.note"/></p>
-								<td>
-							</tr>
-					    </table>
-	                </div>
-                
-                
-            </fieldset>
+					<div class="row">
+						<g:applyLayout name="form/select">
+							<content tag="label"><g:message code="billing.prorating.options"/></content>
+							<content tag="label.for">proratingType</content>
+							<g:select name="proratingType"
+									  from="${[[value: 'PRORATING_AUTO_ON',  label: message(code: 'label.proratingType.alwaysProrating')],
+											   [value: 'PRORATING_AUTO_OFF', label: message(code: 'label.proratingType.neverProrating')],
+											   [value: 'PRORATING_MANUAL',   label: message(code: 'label.proratingType.manuallyProrating')]]}"
+									  optionKey="value"
+									  optionValue="label"
+									  value="${configuration?.proratingType}" />
+						</g:applyLayout>
+					</div>
+					<div class="row">
+						<label class="" title="">
+							<strong><g:message code="billing.label.note"/>: </strong>
+						</label>
+						<label style="text-align: left; width: 300px">
+							<g:message code="billing.prorating.note"/>
+						</label>
+					</div>
+			</fieldset>
                 
 
-                <div class="btn-box">
-                       	<a onclick="$('#save-billing-form').submit();" class="submit save"><span><g:message code="button.save"/></span></a>
-                       	<g:link controller="config" action="index" class="submit cancel"><span><g:message code="button.cancel"/></span></g:link>
-                        <g:if test="${isBillingRunning}">
-                        </g:if>
-                        <g:else>
-                           	<g:link controller="billingconfiguration" action="runBilling" class="submit "><span><g:message code="button.run.billing"/></span></g:link>
-                        </g:else>
-                </div>
+			<div class="btn-box">
+				<a onclick="$('#save-billing-form').submit();" class="submit save"><span><g:message code="button.save"/></span></a>
+				<g:if test="${isBillingRunning}">
+				</g:if>
+				<g:else>
+					<g:link controller="billingconfiguration" action="runBilling" class="submit "><span><g:message code="button.run.billing"/></span></g:link>
+				</g:else>
+				<g:link controller="config" action="index" class="submit cancel"><span><g:message code="button.cancel"/></span></g:link>
+			</div>
+
             <script type="text/javascript">
                 $(".numericOnly").keydown(function(event){
                     // Allow only backspace, delete, left & right
