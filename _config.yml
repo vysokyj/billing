@@ -1,0 +1,8 @@
+title: Web Data jBilling4_1_1
+description: This repository is based on Forked jBilling Version CE-4.1.1
+google_analytics: UA-69472021-1
+show_downloads: true
+theme: jekyll-theme-slate
+
+gems:
+  - jekyll-mentions
