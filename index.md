@@ -1,4 +1,4 @@
-### Welcome to Web Data's jBilling Community Edition page.
+### Web Data Billing's Features
 [Web Data Technologies LLP](http://www.webdatatechnologies.in) is a technology company focused on Product Engineering and Solution Design. Web Data is engaged in the development of the worlds most popular Open Source Billing platform - jBilling. We are a professional team, with work friendly environment, international culture and exposure clients accross the globe.
 
 ### [Web Data jBilling CE 4.1.1](https://github.com/WebDataConsulting/billing/tarball/master)
