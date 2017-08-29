@@ -40,6 +40,14 @@ We are currently implementing jBilling as a Billing solution for clients interes
 1. JSON/XML/CSV Support
 1. Meta Fields CSV Download
 1. Unique Meta Fields
+1. Product Bundles
+1. Optional Products
+1. Included Quantity
+1. Swap Plans mid period
+1. Fixed Charge
+1. Shared Usage
+1. Full usage details
+1. Share usage between hierarchy and non-hierarchy customers
 
 There are a dozen other small and medium features that may not be listed here for sake of de-cluttering. 
 
