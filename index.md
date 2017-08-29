@@ -32,6 +32,14 @@ We are currently implementing jBilling as a Billing solution for clients interes
 1. Advanced Mediation (High performance multi-core)
 1. Provisioning Integration
 1. Usage Based Discounts
+1. jBilling Metrics
+1. Ant and Geb Tests
+1. Discounts Redesign
+1. Entity Specific Prices
+1. Product Historical Prices
+1. JSON/XML/CSV Support
+1. Meta Fields CSV Download
+1. Unique Meta Fields
 
 There are a dozen other small and medium features that may not be listed here for sake of de-cluttering. 
 
