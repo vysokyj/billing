@@ -1127,7 +1127,7 @@ public class NotificationBL extends ResultList implements NotificationSQL {
             File logo = new File(com.sapienter.jbilling.common.Util
                     .getSysProp("base_dir")
                     + "logos/entity-" + entityId + ".jpg");
-            parameters.put("LOGO", logo);
+            parameters.put("entityLogo", logo);
 
             // tax calculated
             BigDecimal taxTotal = new BigDecimal(0);

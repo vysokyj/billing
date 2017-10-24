@@ -92,7 +92,7 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<parameter name="sales_tax" class="java.math.BigDecimal"/>
-	<parameter name="LOGO" class="java.io.File"/>
+	<parameter name="entityLogo" class="java.io.File"/>
 	<parameter name="customer_notes" class="java.lang.String"/>
 	<parameter name="owner_company" class="java.lang.String"/>
 	<parameter name="owner_street_address" class="java.lang.String"/>
@@ -176,7 +176,7 @@
 			</staticText>
 			<image>
 				<reportElement x="290" y="47" width="257" height="113"/>
-				<imageExpression><![CDATA[$P{LOGO}]]></imageExpression>
+				<imageExpression><![CDATA[$P{entityLogo}]]></imageExpression>
 			</image>
 			<textField>
 				<reportElement x="328" y="158" width="219" height="10" forecolor="#A6A7A7"/>
