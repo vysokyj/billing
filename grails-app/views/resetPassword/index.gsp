@@ -30,6 +30,7 @@ You may download the latest source from webdataconsulting.github.io.
     <meta name="layout" content="public"/>
 
     <title><g:message code="login.page.title"/></title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
     <r:script disposition="head">
         var RecaptchaOptions = {
@@ -129,17 +130,7 @@ You may download the latest source from webdataconsulting.github.io.
                     </g:else>
 
                     <g:if test="${captchaEnabled}">
-                        <script type="text/javascript"
-                                src="https://www.google.com/recaptcha/api/challenge?k=${publicKey}">
-                        </script>
-                        <noscript>
-                            <iframe src="https://www.google.com/recaptcha/api/noscript?k=${publicKey}"
-                                    height="300" width="500" frameborder="0"></iframe><br>
-                            <textarea name="recaptcha_challenge_field" rows="3" cols="40">
-                            </textarea>
-                            <input type="hidden" name="recaptcha_response_field"
-                                   value="manual_challenge">
-                        </noscript>
+                        <div class="g-recaptcha" data-sitekey="${Util.getSysProp('recaptcha.public.key')}"></div>
                     </g:if>
 
                     <br/>

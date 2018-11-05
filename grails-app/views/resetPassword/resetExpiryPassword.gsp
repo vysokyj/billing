@@ -30,9 +30,6 @@ You may download the latest source from webdataconsulting.github.io.
     <title><g:message code="login.page.title"/></title>
 
     <r:script disposition="head">
-        var RecaptchaOptions = {
-            theme:'white'
-        };
 
         $(document).ready(function () {
             $('#reset_password input[name="username"]').focus();
@@ -48,25 +45,7 @@ You may download the latest source from webdataconsulting.github.io.
 
     </r:script>
 
-    <style type="text/css">
-    #recaptcha_widget_div label {
-        float: none;
-    }
-
-    #recaptcha_widget_div a img {
-        top: 0px;
-        left: 0px;
-    }
-
-    #recaptcha_widget_div span {
-        font-weight: normal;
-    }
-
-    #recaptcha_widget_div {
-        margin-left: 85px;
-        margin-top: 12px;
-    }
-    </style>
+    <style type="text/css"></style>
 </head>
 
 <body>
@@ -113,18 +92,6 @@ You may download the latest source from webdataconsulting.github.io.
                         <content tag="label.for">confirmPassword</content>
                         <g:passwordField class="field" id="confirmPassword" name="confirmPassword" value=""/>
                     </g:applyLayout>
-
-                    <script type="text/javascript"
-                            src="https://www.google.com/recaptcha/api/challenge?k=${Util.getSysProp('recaptcha.public.key')}">
-                    </script>
-                    <noscript>
-                        <iframe src="https://www.google.com/recaptcha/api/noscript?k=${Util.getSysProp('recaptcha.public.key')}"
-                                height="300" width="500" frameborder="0"></iframe><br>
-                        <textarea name="recaptcha_challenge_field" rows="3" cols="40">
-                        </textarea>
-                        <input type="hidden" name="recaptcha_response_field"
-                               value="manual_challenge">
-                    </noscript>
 
                     <br/>
                 </div>
