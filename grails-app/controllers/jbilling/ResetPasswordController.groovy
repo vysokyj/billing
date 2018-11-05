@@ -39,6 +39,8 @@ import org.joda.time.Days
 import org.joda.time.Duration
 import org.joda.time.Hours
 
+import groovy.json.JsonSlurper
+
 import javax.validation.ConstraintViolationException
 
 import org.springframework.web.context.request.RequestContextHolder
@@ -62,27 +64,38 @@ class ResetPasswordController {
         ]
     }
 
-    def captcha (){
+    def captcha () {
         boolean result
         Boolean captchaEnabled = Boolean.parseBoolean(Util.getSysProp('forgot.password.captcha'))
         if (captchaEnabled) {
-            try{
+            try {
                 def remoteAddress = request.remoteAddr
-                def http = new HTTPBuilder('http://www.google.com')
+                def http = new HTTPBuilder('https://www.google.com')
+
+                println "params[g-recaptcha-response]: " + params['g-recaptcha-response']
+                println "privatekey: ${Util.getSysProp('recaptcha.private.key')}"
+                println "remoteip: ${remoteAddress}"
+
                 http.request(Method.POST, ContentType.TEXT) {
-                    uri.path = '/recaptcha/api/verify'
-                    uri.query = [privatekey: Util.getSysProp('recaptcha.private.key'),
+                    uri.path = '/recaptcha/api/siteverify'
+                    uri.query = [
+                            secret: Util.getSysProp('recaptcha.private.key'),
                             remoteip: remoteAddress,
-                            challenge: params.recaptcha_challenge_field,
-                            response: params.recaptcha_response_field]
+                            response: params['g-recaptcha-response']
+                    ]
 
                     response.success = { resp, value ->
                         StringWriter writer = new StringWriter();
                         IOUtils.copy(value, writer);
-                        result = Boolean.parseBoolean((writer?.toString()?.split("\n") as List)[0])
+                        def slurper = new JsonSlurper()
+                        def recaptchaResp = slurper.parseText(writer?.toString())
+                        log.debug 'recaptcha validation pass = ' + recaptchaResp?.success
+                        log.debug 'recaptcha ts ' + recaptchaResp?.challenge_ts
+                        result = recaptchaResp?.success
                     }
                 }
-            }catch(Exception e){
+            } catch (Exception e) {
+                e.printStackTrace()
                 flash.error = message(code: 'forgotPassword.captcha.error')
                 forward action: 'index'
                 return
