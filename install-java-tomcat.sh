@@ -41,14 +41,14 @@ sudo apt-get -y upgrade
 sudo groupadd tomcat
 sudo useradd -s /bin/false -g tomcat -d /opt/tomcat tomcat
 wget http://mirror.fibergrid.in/apache/tomcat/tomcat-8/v8.0.33/bin/apache-tomcat-8.0.33.tar.gz
-sudo mkdir /opt/tomcat1
-sudo mkdir /opt/tomcat1/activemq-data
+sudo mkdir /opt/tomcat
+sudo mkdir /opt/tomcat/activemq-data
 sudo mkdir /opt/jbilling
 sudo mkdir /opt/jbilling/jbilling
 sudo mkdir /opt/jbilling/jbilling/logs
-sudo tar xvf apache-tomcat-8*tar.gz -C /opt/tomcat1 --strip-components=1
-sudo chown -R tomcat:tomcat /opt/tomcat1
-cd /opt/tomcat1
+sudo tar xvf apache-tomcat-8*tar.gz -C /opt/tomcat --strip-components=1
+sudo chown -R tomcat:tomcat /opt/tomcat
+cd /opt/tomcat
 sudo chgrp -R tomcat conf/
 sudo chmod g+rwx conf/
 sudo chmod g+r conf/*
@@ -60,9 +60,9 @@ sudo chown -R tomcat work/ temp/ logs/
 #FOLLOWING STEPS ARE BEST PERFORMED MANUALLY
 sudo cp tomcat.conf /etc/init/tomcat.conf
 
-sudo chown -R tomcat:tomcat /opt/jbilling /opt/tomcat1/work/ /opt/tomcat1/temp/ /opt/tomcat1/logs/ /opt/tomcat1/webapps/
+sudo chown -R tomcat:tomcat /opt/jbilling /opt/tomcat/work/ /opt/tomcat/temp/ /opt/tomcat/logs/ /opt/tomcat/webapps/
 sudo chown -R tomcat /opt/jbilling/jbilling
-sudo chown -R tomcat /opt/tomcat1/activemq-data
+sudo chown -R tomcat /opt/tomcat/activemq-data
 #sudo initctl reload-configuration
 #sudo initctl start tomcat
 
